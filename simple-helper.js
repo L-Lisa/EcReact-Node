@@ -27,3 +27,20 @@ Helper.hide = function (tag) {
 Helper.onClick = function (tag, action) {
     document.getElementById(tag).addEventListener("click", action);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let classes = document.getElementsByClassName('is-numeric');
+    for (var i = 0; i < classes.length; ++i) {
+        classes[i].addEventListener("keypress", function (event) {
+            if (window.event) {                     
+                keyCode = event.keyCode; // IE
+            } 
+            else {                   
+                keyCode = event.which;  // Netscape/Firefox/Opera
+            }
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                event.preventDefault();
+            }
+        });
+    }
+});
