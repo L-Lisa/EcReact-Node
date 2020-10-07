@@ -1,0 +1,21 @@
+[{
+	"name": "Sverige",
+	"capital": "Stockholm",
+	"currency": "SEK",
+	"exchangeRate": 1
+}, {
+	"name": "Finland",
+	"capital": "Helsingfors",
+	"currency": "EUR",
+	"exchangeRate": 11.42
+}, {
+	"name": "USA",
+	"capital": "Washington",
+	"currency": "USD",
+	"exchangeRate": 8.87
+}, {
+	"name": "Storbritanien",
+	"capital": "London",
+	"currency": "GBP",
+	"exchangeRate": 10.413
+}]
