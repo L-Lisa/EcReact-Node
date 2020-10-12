@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Steg 17 - Kunder</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        .container {
+            margin: 10px auto 0 auto;
+            width: 100%;
+            max-width: 960px
+        }
+        button {
+            width:200px; 
+            height:60px;
+            background-color: #cccccc;
+            color: #333333;
+            margin: 12px;
+        }
+        .small-button {
+            width:120px; 
+            margin-top: 24px;
+            height: 24px;
+
+        }
+        h1 {
+            font-size: 22px;
+        }
+        select {
+            width: 300px;
+            font-size: 20px; 
+            padding: 6px;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            width: 200px;
+            display:inline-block;
+            margin-top: 6px;
+        }
+    </style>
+    <script src="js/simple-helper.js"></script>
+    <script>
+
+        var Customers = [];
+        var Customer = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            Customer = new customer();
+            Customer.load();
+            Helper.onClick('eShowCustomer', Customer.showCustomers);
+            Helper.onClick('eShowCustomerBack', Customer.showCustomersBack);
+             
+        });
+        
+        function customer() {
+            this.load = function() {
+                fetch('json/customers.json')
+                    .then(response => response.json())
+                    .then(function(data) {   
+                    Customers = data;
+                })
+                    .catch(error => alert(error))  
+            }
+
+            this.showCustomers = function() {
+                Helper.hide('main-container');
+                let html = '<table style="width: 400px">';
+                html += '<tr><td>Kundnr</td><td>Kund</td></tr>';
+                for (let i=0; i<Customers.length; i++) {
+                    html += '<tr>';
+                        html += '<td>' + Customers[i].customer_no + '</td>';
+                        html += '<td>' + Customers[i].name + '</td>';
+        
+                    html += '</tr>';     
+                }
+                html += '</table>';
+                Helper.setHtml('customer-list', html);
+                Helper.show('customer-list-container');
+            }
+
+            this.showCustomersBack = function () {
+                Helper.hide('customer-list-container');
+                Helper.show('main-container');
+            }
+        }
+              
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="main-container">
+            <div>
+                <button id="eShowCustomer">Visa kunder</button>
+            </div>
+        </div>
+    
+        <div id="customer-list-container" style="display:none">
+            <div id="customer-list"></div>
+            <button id="eShowCustomerBack" class="small-button">Tillbaka</button>
+        </div>
+    
+    </div>
+</body>
+</html>
