@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Steg 9 - Valuta räknare</title>
+    <title>Steg 13 - Valuta räknare</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <style>
         body {
@@ -53,47 +53,22 @@
             Helper.onClick('eProcessExchange', processExchange);
             Helper.onClick('eShowExchangeRatesBack', showExchangeRatesBack);
             Helper.onClick('eDoExchangeRateBack', doExchangeRatesBack);
-            loadCountries();
+           
+            fetch('valuta.json')
+            .then(response => response.json())
+            .then(function(data) {
+                Countries = data;
+                loadCountries();
+            })
+            .catch(error => alert(error))
+
         });
         
         var Countries = Array();
 
         function loadCountries() {
-            /*
-            let country = {};
-            country.name ="Sverige";
-            country.capital = "Stockholm";
-            country.currency = "SEK";
-            country.exchangeRate = 1;
-            Countries.push(country);
-            
-            country = {};
-            country.name ="Finland";
-            country.capital = "Helsingfors";
-            country.currency = "EUR";
-            country.exchangeRate = 11.42;
-            Countries.push(country);
-
-            country = {};
-            country.name ="USA";
-            country.capital = "Washington";
-            country.currency = "USD";
-            country.exchangeRate = 8.87;
-            Countries.push(country);
-        
-            country = {};
-            country.name ="Storbritanien";
-            country.capital = "London";
-            country.currency = "GBP";
-            country.exchangeRate = 10.413;
-            Countries.push(country);
-
-            console.log(JSON.stringify(Countries));
-            */
-           // console.log(JSON.parse(Countries)):
-           let data = '[{"name":"Sverige","capital":"Stockholm","currency":"SEK","exchangeRate":1},{"name":"Finland","capital":"Helsingfors","currency":"EUR","exchangeRate":11.42},{"name":"USA","capital":"Washington","currency":"USD","exchangeRate":8.87},{"name":"Storbritanien","capital":"London","currency":"GBP","exchangeRate":10.413}]';
-
-            Countries = JSON.parse(data);
+           
+            // -- Countries = JSON.parse(data);
 
             let htmlSelect = '';
             for (let i=0; i<Countries.length; i++) {
@@ -129,10 +104,10 @@
         function processExchange() {
             let indexFrom = document.getElementById("exchange-from").value;
             let indexTo = document.getElementById("exchange-to").value;
-            alert(Countries[indexFrom].exchangeRate + ' till ' + Countries[indexTo].exchangeRate);
+            // alert(Countries[indexFrom].exchangeRate + ' till ' + Countries[indexTo].exchangeRate);
             let amount = Helper.getValue('amount');
             let newAmount = Number(amount) * Number(Countries[indexFrom].exchangeRate) /  Number(Countries[indexTo].exchangeRate);
-            alert(newAmount);
+            // alert(newAmount);
             newAmount = newAmount.toFixed(2);
             Helper.setHtml('new-amount', newAmount);
         }
