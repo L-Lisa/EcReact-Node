@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Steg 18 - Kunder MVC</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/simple-helper.js"></script>
+   
+   <script>
+
+        class CustomerModel {
+          async customerList() {
+                let promise = await fetch('json/customers.json')
+                return promise;
+            }
+        }
+        
+        class CustomerView {
+            customerList(data) {
+                Helper.hide('main-container');
+                let html = '<table style="width: 400px">';
+                html += '<tr><td>Kundnr</td><td>Kund</td></tr>';
+                for (let i=0; i<data.length; i++) {
+                    html += '<tr>';
+                        html += '<td>' + data[i].customer_no + '</td>';
+                        html += '<td>' + data[i].name + '</td>';
+                    html += '</tr>';     
+                }
+                html += '</table>';
+                Helper.setHtml('customer-list', html);
+                Helper.show('customer-list-container');
+            }
+        }
+
+        class CustomerController {
+            constructor() {}
+            init() {
+                Model.customerList()
+                .then(response => response.json())
+                .then(function(data) {   
+                    View.customerList(data);
+                })
+            }
+        }
+        
+        const Model = new CustomerModel();
+        const View = new CustomerView();
+        const Controller = new CustomerController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+           Controller.init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="main-container">
+            <div>
+                <!-- <button id="eShowCustomer">Visa kunder</button> -->
+            </div>
+        </div>
+    
+        <div id="customer-list-container" style="display:none">
+            <div id="customer-list"></div>
+            <button id="eShowCustomerBack" class="small-button">Tillbaka</button>
+        </div>
+    
+    </div>
+</body>
+</html>
