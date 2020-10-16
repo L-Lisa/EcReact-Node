@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Steg 18 - Kunder MVC</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/simple-helper.js"></script>
+    <script src="model/customer-model.js"></script>
+    <script src="view/customer-view.js"></script>
+    <script src="controller/customer-controller.js"></script>
+   <script>
+        
+        var Current = {};
+        const Model = new CustomerModel();
+        const View = new CustomerView();
+        const Controller = new CustomerController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+           Controller.init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="main-container">
+            <div>
+                <!-- <button id="eShowCustomer">Visa kunder</button> -->
+            </div>
+        </div>
+    
+        <div id="customer-list-container" style="display:none">
+            <div id="customer-list"></div>
+            <!-- <button id="eShowCustomerBack" class="small-button">Tillbaka</button> -->
+        </div>
+    
+    </div>
+</body>
+</html>

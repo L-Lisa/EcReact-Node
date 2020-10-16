@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo - Response</title>
+ 
+    <script>
+        /*  A promise have 3 status
+            - Pending
+            - Fulfilled
+            - Rejected
+        */
+        
+        var done = false;
+    
+        const isItDoneYet = new Promise((resolve, reject) => {
+            if (done) {
+                let svarsText = "All Done"; // json exchange
+                resolve(svarsText); 
+            }
+            else {
+                let svarsText = "Not Done";
+                resolve(svarsText); 
+            }
+        } )
+       
+        var checkIfItsDone = function () {
+            isItDoneYet
+            .then(response => {
+                alert(response);
+            })
+            .catch(err => {
+                alert('error');
+            })
+            alert('slut');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkIfItsDone();
+        });
+    
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>
