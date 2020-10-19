@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo - Switch</title>
+    
+    <script>
+    let customerCode = 'A01';
+    
+    if (customerCode == "A01") {
+        customerCodeText = "A01 - customer";
+    }
+    else if (customerCode == "A02") {
+        customerCodeText = "A02 - customer";
+    }
+    else if (customerCode == "A03") {
+        customerCodeText = "A03 - customer";
+    }
+    else if (customerCode == "A04") {
+        customerCodeText = "A04 - customer";
+    }
+    else {
+        customerCodeText = "USUAL customer";
+    }
+        
+    let customerCodeText = '';
+
+    switch (customerCode) {
+        case "A01":
+            customerCodeText = "A01 - customer";
+            break;
+        case "A02":
+            customerCodeText = "A02 - customer";
+            break;
+        case "A03":
+            customerCodeText = "A03 - customer";
+            break;
+        case "A04":
+            customerCodeText = "A04 - customer";
+            break;
+        case "A05":
+            customerCodeText = "A05 - customer";
+            break;
+        default:
+            customerCodeText = "Standard customer";
+    }
+    
+
+    </script>
+</head>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <title>Demo - Windows</title>
+ 
+    <script>
+    /*
+        The Document Object Model (DOM) is an API for manipulating HTML and XML documents. 
+        It provides a structural representation of the document, enabling you to modify its 
+        content and visual presentation by using a scripting language such as JavaScript.
+    */
+
+        /*
+        Screen
+            Windows
+                DOM
+        */
+
+        console.log(window.document.title);
+        console.log(window.innerHeight);
+        console.log(window.innerWidth);
+        console.log(screen.width);
+
+
+        //console.log(screen.width);
+        // window.location = 'https://google.se';
+        // alert(window.document.title);
+        //windows.history.back();     // equivalent to clicking back button
+        //history.go(-10);     // equivalent to history.back();
+       
+        
+        function myLoadEvent() {
+            alert("Loaded");
+        }
+        window.onload=myLoadEvent;
+        
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
