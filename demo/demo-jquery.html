@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Demo - jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>     
+
+        function meddelande(message) {
+            alert(message);
+        }
+
+        function jsonLoad() {
+        
+            $.ajax( { 
+                type: "GET", url: 'countries.json',
+                success: function(result) {
+                    // alert(result);
+                    // var reply = jQuery.parseJSON(result);
+                }
+            });
+        }
+
+
+        $(document).on('click', '#eDoGo', function(event) {
+            event.preventDefault();   
+            jsonLoad();
+            /*
+            var html = "<p>Detta är en text</p>";
+            $('.container').html(html);
+            */
+        });
+        
+
+
+
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="container-1" class="container">
+            <button id="eDoGo">Do Go</button>
+        </div>
+        <div id="container-2" class="container">
+            
+        </div>
+        <div id="container-3" class="container">
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

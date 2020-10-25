@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Steg 20 - Valuta MVC</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/simple-helper.js"></script>
+    <script src="model/weather-model.js"></script>
+    <script src="view/weather-view.js"></script>
+    <script src="controller/weather-controller.js"></script>
+   <script>
+        var Current = {};
+        const Model = new WeatherModel();
+        const View = new WeatherView();
+        const Controller = new WeatherController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            Controller.init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="weather-container">
+           
+        </div>
+    </div>
+</body>
+</html>

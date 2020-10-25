@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo - Cookie</title>
+    
+    <script>
+
+        document.cookie = "namn=Bosse";
+        document.cookie = "mobil=070001020";
+
+        let minInfo = unpackCookie(document.cookie);
+
+        console.log(minInfo);
+
+      
+        
+
+        function unpackCookie(cookie) {
+            let minaCookie = cookie.split('; ');
+
+            let reply = {};
+            reply.namn = minaCookie[0].substring(minaCookie[0].indexOf('=') + 1);
+            reply.telefon = minaCookie[1].substring(minaCookie[1].indexOf('=') + 1);
+            return reply;
+        } 
+
+       
+
+    </script>
+</head>
+
+</body>
+</html>
+

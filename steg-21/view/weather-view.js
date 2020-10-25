@@ -1,0 +1,7 @@
+class WeatherView {
+    
+    showWeather(data) {
+       
+    }
+
+}

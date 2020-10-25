@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo - Windows</title>
+ 
+    <script>
+    /*
+       Windows
+       BOM - Browser Object Model
+       DOM - Document Object Model
+
+    */
+    
+    document.addEventListener('DOMContentLoaded', function() {
+       
+        let element = document.createElement('p');
+        let node = document.createTextNode("Detta är en paragraf");
+        element.appendChild(node);
+        let elementNew = document.getElementById('main').appendChild(element);
+        element.style.color = "#cc3333";
+
+        let elementButton = document.createElement('button');
+        let nodeButton = document.createTextNode('Utför Nu');
+        elementButton.appendChild(nodeButton);
+        let elementButtonNew = document.getElementById('main').appendChild(elementButton);
+        elementButtonNew.id = "DoNow";
+        elementButtonNew.addEventListener("click", doItNow);
+
+        let images = document.querySelectorAll(".gallery");
+        console.log(images);
+      
+        for (let i = 0; i < images.length; i++) {
+            let image = images[i];
+            // alert(image.getAttribute('id'));
+            image.style.display = "none";
+        }
+        
+    // GetElemenyById vs. gQuerySelector
+    // var element = document.querySelector(".contaiters");
+
+    // Hide and show
+
+
+    // Change style
+
+    // document.getElementById("second").innerHTML = "The orginal message is changed.";
+
+    }); 
+
+    function doItNow() {
+        alert('Do it now');
+        document.getElementById('DoNow').style.color = "#cc3333"
+
+    }
+
+
+    </script>
+</head>
+<body>
+    <div id="main">
+
+        <h1>DOM - Examples</h1>
+
+        <img id="bild1" class="gallery" src="bild1.jpg" />
+        <img id="bild2" class="gallery" src="bild2.jpg" />
+        <img id="bild3" class="gallery" src="bild3.jpg" />
+    </div>
+
+</body>
+</html>
