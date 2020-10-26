@@ -7,8 +7,8 @@ class WeatherController {
         .then(response => response.json())
         .then(function(data) {   
             Current.cities = data;
-            // Set tnumber of cities 1-6
-            Current.selectedCities = Model.citiesInitSet( Current.cities, 7);
+            // Set number of cities 1-6
+            Current.selectedCities = Model.citiesInitSet(Current.cities, 3);
             Controller.weatherListLoad( );
         })
         .catch(error => alert(error))
@@ -19,7 +19,6 @@ class WeatherController {
         Model.weatherListLoad(Current.selectedCities)
         .then(response => response.json())
         .then(function(data) {   
-            // Current.weatherData = data;
             View.showPanel(data);
         })
         .catch(error => alert(error))

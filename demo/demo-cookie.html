@@ -7,16 +7,26 @@
     <title>Demo - Cookie</title>
     
     <script>
+        /*
+            https://web.dev/samesite-cookies-explained/
 
-        document.cookie = "namn=Bosse";
-        document.cookie = "mobil=070001020";
+            The SameSite attribute of the Set-Cookie HTTP response header allows you to declare 
+            if your cookie should be restricted to a first-party or same-site context.
+            Which means cookies are only set when the domain in the URL of the browser matches 
+            the domain of the cookie.
+        */
 
+        var date = new Date();
+        // 180 minuterer
+        let loginTime = 60;
+        date.setTime(date.getTime() + (loginTime * 60 * 1000)); 
+        let expires = "; expires=" + date.toString();
+
+        document.cookie = 'namn=Bosse' + expires + ';sameSite=lax;path=/';
+        /*
         let minInfo = unpackCookie(document.cookie);
 
         console.log(minInfo);
-
-      
-        
 
         function unpackCookie(cookie) {
             let minaCookie = cookie.split('; ');
@@ -26,7 +36,7 @@
             reply.telefon = minaCookie[1].substring(minaCookie[1].indexOf('=') + 1);
             return reply;
         } 
-
+        */
        
 
     </script>
