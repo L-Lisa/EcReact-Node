@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Demo - Prototype</title>
+    
+    <script>
+        /*
+            var x1 = new Object();    // A new Object object
+            var x2 = new String();    // A new String object
+            var x3 = new Number();    // A new Number object
+            var x4 = new Boolean();   // A new Boolean object
+            var x5 = new Array();     // A new Array object
+            var x6 = new RegExp();    // A new RegExp object
+            var x7 = new Function();  // A new Function object
+            var x8 = new Date();      // A new Date object
+        */
+    
+        
+    function CustomerBase(customerName, city) {
+        this.customerName = customerName;
+        this.customerName = city;
+        this.displayCustomer = function() {
+            alert('Base: ' + this.customerName);
+        }
+        /*
+        this.setOrgNo = function (orgNo) {
+            this.orgNo = orgNo;
+            alert('Orgno; ' + this.orgNo);
+        }
+        */
+    }
+
+    let customerPrivate = new CustomerBase("Kalle Karlssont", "Uppsala");
+    let customerCompany = new CustomerBase("Test Bolaget", "Stockholm");
+
+    // customerPrivate.displayCustomer();
+    // customerCompany.displayCustomer();
+
+    // customerCompany.setOrgNo("556123-4534");
+    
+    //let companyBase = Object.create(CustomerBase);
+    
+    // companyBase = Object.create(CustomerBase);
+    // companyBase.setOrgNo = function (orgNo) {
+        // this.orgNo = orgNo;
+        // alert('Orgno; ' + this.orgNo);
+    // }
+
+    let company1 = new companyBase("Test Bolaget 4 ", "Täby");
+    company1.displayCustomer();
+
+    /*
+
+
+
+    var myInfoStep1 = new MyInfoBase('Bosse');
+    myInfoStep1.displayName();
+    myInfoStep1.displayName = function() {
+        alert('Step 1: ' + this.myName);
+    }
+    myInfoStep1.displayName();
+
+    var myInfoStep2 = new MyInfoBase('Kalle');
+    myInfoStep2.displayName();
+
+    
+
+    MyInfoBase.displayName = function() {
+        alert('Changed: ' + this.myName);
+    }
+
+    var myInfoStep3 = new MyInfoBase('Fredrik');
+    myInfoStep3.displayName();
+    
+
+
+
+    /*
+
+        String.prototype.replaceAll = function(target, replacement) {
+            return this.split(target).join(replacement);
+        };
+
+        // Display:  Chriz Wezt
+        alert("Chris West".replaceAll("s", "z"));
+        
+        // Display:  Peter Piker kicks kekkers.
+        alert("Peter Piper picks peppers.".replaceAll("p", "k"));
+        
+        // Display:  Anteedeesestableeshmentareeaneesm
+        alert("Antidisestablishmentarianism".replaceAll("i", "ee"));
+
+    */
+
+        /*
+    function Parent() { }
+
+        Parent.prototype.someFunc = function(x) {
+            var result = 0;
+            if (x == 1) {
+                result = 1;
+            }
+            return result;
+        }
+
+        function Child() { }
+
+        Child.prototype = Object.create(Parent.prototype); //inheritance
+        Child.prototype.constructor = Child; //enforce the constructor to be Child instead of Parent
+
+        Child.prototype.someFunc = function(x) {
+            return Parent.prototype.someFunc.call(this, x); //call your Parent prototype someFunc passing your current instance
+        }
+
+        var child = new Child();
+        console.log(child.someFunc(1)); //1
+        console.log(child.someFunc(2)); //0
+        */
+
+    </script>
+</head>
+
+</body>
+</html>
+
