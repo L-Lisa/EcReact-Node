@@ -1,0 +1,14 @@
+[{
+	
+	"valuta": "SEK",
+	"kurs": 1
+}, {
+	"valuta": "EUR",
+	"kurs": 11.42
+}, {
+	"valuta": "USD",
+	"kurs": 8.87
+}, {
+	"valuta": "GBP",
+	"kurs": 10.413
+}]
