@@ -13,7 +13,7 @@ export default class Valuta extends React.Component {
             valuta: '',
             kurs: '' 
         }
-        this.state.countries = this.props.Countries;
+        //  this.state.countries = this.props.Countries;
         this.eFormChange = this.eFormChange.bind(this);
         this.eSubmit  = this.eSubmit.bind(this);       
         console.log('constructor'); 
@@ -23,7 +23,7 @@ export default class Valuta extends React.Component {
         fetch('valuta.json')
             .then(response => response.json())
             .then(data => this.setState({ valutor: data }))           
-      }
+    }
 
     render() {
         console.log('Render'); 
@@ -57,7 +57,7 @@ export default class Valuta extends React.Component {
 
     eSubmit(e) {
         e.preventDefault();
-        alert('sunmit');
+       
         if (this.state.valuta.length === 0 ) {
             return;
         }
@@ -65,9 +65,12 @@ export default class Valuta extends React.Component {
         if (this.state.kurs.length === 0 ) {
             return;
         }
+
+        var nyKurs = this.state.kurs * 100;
+
         const newValuta = { 
             valuta: this.state.valuta, 
-            kurs: this.state.kurs
+            kurs: nyKurs
         };
       
         this.setState(state => ({
