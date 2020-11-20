@@ -1,5 +1,6 @@
-// File-Read Syncronize
-
+// File-Read Syncronize - är inte async 
+// ta in paket -  
+// skriv i teminalen  "node file-read-sync"
 const fs = require('fs');
 
 

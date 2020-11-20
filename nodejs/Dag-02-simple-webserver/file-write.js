@@ -1,4 +1,6 @@
-// Write to file
+// Write to file, vilken fil ska skrivas?
+// node file-write   -?ingen respons
+
 const fs = require('fs');
 
 const fileUrl = "test.txt";

@@ -1,4 +1,5 @@
-// routes.js
+// routes.js  (Google node.js.documentation)
+
 const fs = require('fs');
 const url = require('url');
 
@@ -15,27 +16,27 @@ html = {
         })
     }
 }
-
+// gör filen möjlig att exportera
 module.exports = {
-    handleRequest(request, response) {        
+    handleRequest(request, response) {
         response.writeHead(200, {
-            'Content-Type' : 'text/html; charset=utf-8'
+            'Content-Type': 'text/html; charset=utf-8'
         });
-        
-        let path = url.parse(request.url).pathname;
 
+        let path = url.parse(request.url).pathname;
+        //routing
         switch (path) {
-            case '/' :
+            case '/':
                 html.render('./index.html', response);
                 break;
-            case '/om-oss' :
+            case '/om-oss':
                 html.render('./about-us.html', response);
                 break;
-            case '/bulma' :
+            case '/bulma':
                 html.render('./index-2.html', response);
                 break;
-            default :
-                response.writeHead(404);
+            default:
+                response.writeHead(404); // write head skickar kod ha en , kan ha flera .write
                 response.write('Sidan finns ej');
                 response.end();
         }
