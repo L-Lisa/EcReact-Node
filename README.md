@@ -1,2 +1,3 @@
-# ec-javascript-kurs
-Kurs för JavaScript Kurs EC - 2020
+Ec Utbildning 80p
+Js, React, Node,
+This is just study material and short tasks
